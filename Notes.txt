@@ -1,0 +1,40 @@
+django
+    free open source web application framework
+
+how can a server serve a webpage?
+    requests
+    ports
+
+django - urlresolver
+
+Create django dir structure:
+django-admin startproject mysite .
+
+change settings
+
+set host:
+ALLOWED_HOSTS
+
+setup the db:
+python manage.py migrate
+
+start the webserver:
+python manage.py runserver
+
+set up app directory:
+python manage.py startapp blog
+
+add installed app:
+INSTALLED_APPS
+
+Create model in APP/models.py
+
+add model to DB:
+# generate model migration file
+python manage.py makemigrations blog
+# apply models to DB
+python manage.py migrate blog
+
+create superuser
+python manage.py createsuperuser
+

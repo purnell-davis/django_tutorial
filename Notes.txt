@@ -48,3 +48,48 @@ views.py
 
 templates
     app/templates/app/template.html
+
+QuerySet is, in essence, a list of objects of a given Model
+QuerySets allow you to read the data from the database, filter it and order it.
+
+Django interactive console
+$ python manage.py shell
+
+>>> from django.contrib.auth.models import User
+see all users
+>>> User.objects.all()
+assign user
+>>> me = User.objects.get(username='ola')
+
+>>> from blog.models import Post
+see all posts
+>>> Post.objects.all()
+create post
+>>> Post.objects.create(author=me, title='Sample title', text='Test')
+get post on title
+>>> post = Post.objects.get(title="Sample title")
+publish post
+>>> post.publish()
+
+filter
+on user
+>>> Post.objects.filter(author=me)
+on title
+>>> Post.objects.filter(title__contains='title')
+on time
+>>> from django.utils import timezone
+>>> Post.objects.filter(published_date__lte=timezone.now())
+on publish date
+>>> Post.objects.filter(published_date__lte=timezone.now())
+
+ordering
+>>> Post.objects.order_by('created_date')
+reverse order
+>>> Post.objects.order_by('-created_date')
+
+chaining
+>>> Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+
+pass render data to render and html template
+render()
+

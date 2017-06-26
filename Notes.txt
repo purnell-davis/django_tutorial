@@ -38,3 +38,13 @@ python manage.py migrate blog
 create superuser
 python manage.py createsuperuser
 
+Django works using the "WSGI protocol", a standard for serving websites using Python
+
+urls.py
+    route traffic to correct function (view)
+    like nginx syntax
+
+views.py
+
+templates
+    app/templates/app/template.html

@@ -106,4 +106,17 @@ Post.objects.get(pk=pk)
 from django.shortcuts import render, get_object_or_404
 post = get_object_or_404(Post, pk=pk)
 
+ModelForm which will save the result of the form to the model
+Next, we have class Meta, where we tell Django which model should be used to create this form (model = Post).
 
+POST
+csrf_token
+
+Logic flow with request.method == "POST"
+form.isvalid()
+form.save(commit=False) # allows us to get the form and modify the data before actually saving it
+form.save()
+
+post.pk
+
+user.is_authenticated
